@@ -1,0 +1,27 @@
+<%- include('../partials/header')%>
+
+<h2>All Courses</h2>
+
+<table>
+    <thead>
+      <tr>
+        <th>Course Name</th>
+        <th>Location</th>
+        <th>Review</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Write the line of EJS to iterate over movies using forEach -->
+      <% courses.forEach(function(m) {%>
+        <tr>
+          <td><%= m.course %></td>
+          <td><%= m.location %></td>
+          <td><%= m.review %></td>
+          <td><button><a href="/courses/<%= m._id %>">Details</a></button></td>
+        </tr>
+      <!-- Close the forEach using EJS here -->
+      <% }); %>
+    </tbody>
+  </table>
+
+<%- include('../partials/footer')%>

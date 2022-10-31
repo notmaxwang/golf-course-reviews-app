@@ -18,10 +18,12 @@ function create(req, res) {
     course.save(function(err) {
         if(err) return res.redirect('/courses/new');
         console.log(course);
-        res.redirect('/courses/new');
+        res.redirect('/courses');
     });
 }
 
 function index(req, res) {
-    
+    Course.find({}, function(err, courses) {
+        res.render('courses/index', {title: 'All Courses', courses });
+    });
 }
