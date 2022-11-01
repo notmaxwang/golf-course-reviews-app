@@ -9,7 +9,12 @@
 </head>
 <body>
   <nav>
-    <button><a href="/">Home</a></button>
-    <button><a href="/courses/new">Add Course</a></button>
-    <button><a href="/courses">All Courses</a></button>
+    <a href="/" <%- title === 'Home' ? 'class="active"' : '' %>>HOME</a>
+    <a href="/courses" <%- title === 'All Courses' ? 'class="active"' : '' %>>ALL COURSES</a>
+    <% if (user) { %>
+      <a href="/courses/new" <%- title === 'Add Course' ? 'class="active"' : '' %>>ADD COURSE</a>
+      <a href="/logout">LOG OUT</a>
+    <% } else { %>
+      <a href="/auth/google" class="login">LOG IN <img src="https://i.imgur.com/FHjYyi0.png"></a>
+    <% } %>
   </nav>
