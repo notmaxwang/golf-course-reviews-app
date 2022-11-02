@@ -8,7 +8,13 @@ module.exports = {
 }
 
 function show(req, res) {
-    
+    Course.findById(req.params.id,
+    function(err, course) {
+        res.render('courses/show', {
+        title: 'Course Detail',
+        course
+        });  
+    });
 }
 
 function newCourse (req, res) {

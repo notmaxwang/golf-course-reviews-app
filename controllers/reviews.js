@@ -15,7 +15,7 @@ function deleteReview(req, res, next) {
     if (!course) return res.redirect('/courses');
     course.reviews.remove(req.params.id);
     course.save().then(function() {
-      res.redirect(`/movies/${course._id}`);
+      res.redirect(`/courses/${course._id}`);
     }).catch(function(err) {
       return next(err);
     });

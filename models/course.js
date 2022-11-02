@@ -24,15 +24,16 @@ const reviewSchema = new Schema({
 });
 
 const courseSchema = new Schema({
-    course: {
-        type: String,
-        //required: true
+    name: {
+        type: String
     },
     location: {
-        type: String,
-        //required: true
+        type: String
     },
-    review: [reviewSchema]
+    price: {
+      type: Number
+    },
+    reviews: [reviewSchema]
 });
 
 module.exports = mongoose.model('Course', courseSchema);

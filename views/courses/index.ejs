@@ -6,19 +6,17 @@
       <tr>
         <th>Course Name</th>
         <th>Location</th>
-        <th>Reviews</th>
+        <th>Price</th>
       </tr>
     </thead>
     <tbody>
-      <!-- Write the line of EJS to iterate over movies using forEach -->
       <% courses.forEach(function(m) {%>
         <tr>
-          <td><%= m.course %></td>
+          <td><%= m.name %></td>
           <td><%= m.location %></td>
-          <!-- <td><%= m.review %></td> -->
-          <td><button><a href="/courses/<%= m._id %>">Check them out!</a></button></td>
+          <td><%= m.price%></td>
+          <td><a href="/courses/<%= m._id %>">Reviews & Comments</a></td>
         </tr>
-      <!-- Close the forEach using EJS here -->
       <% }); %>
     </tbody>
   </table>
