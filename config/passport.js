@@ -1,7 +1,5 @@
 const passport = require('passport');
-
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-
 const User = require('../models/user');
 
 passport.use(new GoogleStrategy(
@@ -47,8 +45,4 @@ passport.use(new GoogleStrategy(
 
   passport.deserializeUser(async function(userId, cb) {
     cb(null, await User.findById(userId));
-    // The above async/await code replaces this code
-    // User.findById(userId).then(function(user) {
-    //   cb(null, user);
-    // });
   });

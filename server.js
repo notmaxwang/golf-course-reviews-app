@@ -37,7 +37,7 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('method'));
 
-app.use(function (req,res,next) {
+app.use(function (req, res, next) {
   res.locals.user = req.user;
   next();
 });

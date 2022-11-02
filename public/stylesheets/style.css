@@ -1,8 +1,9 @@
 * {
   box-sizing: border-box;
   font-family: Helvetica;
-  color: #424748;
+  color: #0a0a0a;
 }
+
 
 body {
   margin: 0;
@@ -16,7 +17,7 @@ body {
 
 body > nav {
   grid-area: nav;
-  background-color: #B8C0C2;
+  background-color: #71e6b7;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -188,3 +189,4 @@ li {
   border-radius: 50%;
   height: 40px;
 }
+

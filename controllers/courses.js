@@ -3,12 +3,16 @@ const Course = require('../models/course');
 module.exports = {
     new: newCourse,
     create,
-    index
+    index,
+    show
 }
 
+function show(req, res) {
+    
+}
 
 function newCourse (req, res) {
-    res.render('courses/new');
+    res.render('courses/new', { title: 'Add Course' });
 }
 
 function create(req, res) {
