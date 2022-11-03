@@ -6,8 +6,6 @@ module.exports = {
 };
 
 function deleteReview(req, res, next) {
-  // Note the cool "dot" syntax to query for a movie with a
-  // review nested within an array
   Course.findOne({
     'reviews._id': req.params.id,
     'reviews.user': req.user._id

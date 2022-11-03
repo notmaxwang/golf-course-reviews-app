@@ -25,15 +25,27 @@ const reviewSchema = new Schema({
 
 const courseSchema = new Schema({
     name: {
-        type: String
+        type: String,
+        required: true
     },
     location: {
-        type: String
+        type: String,
+        required: true
     },
     price: {
-      type: Number
+      type: Number,
+      required: true
     },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
+    },
+    userName: String,
+    userAvatar: String,
     reviews: [reviewSchema]
+}, {
+  timestamps: true
 });
 
 module.exports = mongoose.model('Course', courseSchema);

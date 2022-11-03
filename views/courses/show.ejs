@@ -7,6 +7,17 @@
     <div><%= course.location %></div>
     <div>Price: </div>
     <div><%= course.price %></div>
+    <% if (user?._id.equals(course.user)) { %>
+      <button class="btn btn-outline-warning">
+        <a href="/courses/<%= course._id %>/edit" style="text-decoration:none">
+          Edit</a>
+        </button>
+    <% } %>
+    <% if (user?._id.equals(course.user)) { %>
+      <form action="/courses/<%= course._id %>?_method=DELETE" method="POST">
+        <input class="btn btn-outline-danger" id="delete-btn" type="submit" value="x">
+      </form>
+    <% } %>
 </section>
 
 <br><br><h2>Reviews</h2>
@@ -50,7 +61,7 @@
           <td>
             <% if (user?._id.equals(r.user)) { %>
               <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
-                <button type="submit">X</button>
+                <button class="btn btn-outline-danger" id="comment-delete-btn" type="submit">X</button>
               </form>
             <% } %>
           </td>

@@ -6,15 +6,14 @@ var logger = require('morgan');
 var methodOverride = require('method-override');
 var session = require('express-session');
 const passport = require('passport');
-//const bootstrap = require('bootstrap')
+
 
 require('dotenv').config();
 require('./config/database');
 require('./config/passport');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var courseRouter = require('./routes/course');
+var coursesRouter = require('./routes/courses');
 var reviewsRouter = require('./routes/reviews');
 
 var app = express();
@@ -27,6 +26,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(methodOverride('method'));
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 app.use(session({
   secret: process.env.SECRET,
   resave: false,
@@ -36,8 +39,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(methodOverride('method'));
 
 app.use(function (req, res, next) {
   res.locals.user = req.user;
@@ -46,9 +47,10 @@ app.use(function (req, res, next) {
 
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/courses', courseRouter);
+app.use('/courses', coursesRouter);
 app.use('/', reviewsRouter);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -66,10 +68,5 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-// Add this middleware BELOW passport middleware
-app.use(function (req, res, next) {
-  res.locals.user = req.user;
-  next();
-});
 
 module.exports = app;
