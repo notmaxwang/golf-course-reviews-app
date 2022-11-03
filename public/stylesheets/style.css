@@ -1,18 +1,11 @@
-* {
-  box-sizing: border-box;
-  font-family: Helvetica;
-  color: #0a0a0a;
-}
-
 
 body {
-  margin: 0;
-  height: 100vh;
-  display: grid;
-  grid-template-rows: 50px 1fr;
-  grid-template-areas: 
-    "nav"
-    "main"
+  padding: 50px;
+  font: 14px sans-serif;
+}
+
+.navbar-header {
+  margin: 20px;
 }
 
 body > nav {
