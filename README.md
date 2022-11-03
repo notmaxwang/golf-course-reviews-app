@@ -20,6 +20,8 @@ visits! You can browse reviews and courses made by other users in the nav bar,
 and you can also write a comment about your own experience in each review entry.
 You will need a Google account to be able to post review or comments. 
 
+![img](https://i.imgur.com/dwOTBHo.jpg)
+
 </div>
 
 
