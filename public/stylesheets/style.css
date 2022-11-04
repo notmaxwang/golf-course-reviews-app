@@ -50,11 +50,19 @@ ul {
    margin: 1vmin;
 }
 
+#show-page {
+  padding-top: 3vmin;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 #add-review-form {
   margin: 1vmin;
 }
 
 .user-buttons {
+  padding-top: 2vmin;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

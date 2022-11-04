@@ -2,25 +2,39 @@
 
 <div class="container">
   <section id="show-page">
-    <h1>Course Information</h1>
-    <h3><%= course.name %> ⛳️</h3>
-    <h3><%= course.location %></h3>
-    <% if (user?._id.equals(course.user)) { %>
-      <div class="user-buttons">
-        
-        <button class="btn btn-outline-warning" id="user-edit">
-          <a href="/courses/<%= course._id %>/edit" style="text-decoration:none">EDIT</a>
-        </button>
-        
-        
-        <form action="/courses/<%= course._id %>?_method=DELETE" method="POST">
-          <button class="btn btn-outline-danger" id="delete-btn" type="submit">DELETE</button>
-        </form>
-        
-        
-      </div>
-    <% } %>
-  </section>
+    <div>
+      <h1>Course Information</h1>
+      <h3><%= course.name %> ⛳️</h3>
+      <h3><%= course.location %></h3>
+      <% if (user?._id.equals(course.user)) { %>
+        <div class="user-buttons">
+          
+          <button class="btn btn-outline-warning" id="user-edit">
+            <a href="/courses/<%= course._id %>/edit" style="text-decoration:none">EDIT</a>
+          </button>
+          
+          <form action="/courses/<%= course._id %>?_method=DELETE" method="POST">
+            <button class="btn btn-outline-danger" id="delete-btn" type="submit">DELETE</button>
+          </form>
+      
+        </div>
+      <% } %>
+    </div>
+    
+    <div>
+      <iframe
+        width="600"
+        height="450"
+        style="border:0"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed/v1/place?key=<%= apiKey %>&q=<%= course.location %>">
+      </iframe>
+    </div>
+  </section> 
+
+
 </div>
 
 <br>

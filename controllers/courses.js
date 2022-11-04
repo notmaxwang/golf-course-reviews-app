@@ -44,6 +44,7 @@ function show(req, res) {
     Course.findById(req.params.id, function(err, course) {
         res.render('courses/show', {
         title: 'Course Detail',
+        apiKey: process.env.GOOGLE_MAP_API_KEY,
         course
         });  
     });

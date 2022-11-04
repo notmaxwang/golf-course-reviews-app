@@ -22,7 +22,8 @@ You will need a Google account to be able to post review or comments.
 
 ![img](https://i.imgur.com/dwOTBHo.jpg)
 ![img](https://i.imgur.com/acT6rQQ.png)
-![img](https://i.imgur.com/xBdDKTw.png)
+![img](https://i.imgur.com/FmdzRat.png)
+![img](https://i.imgur.com/fN3f11t.png)
 ![img](https://i.imgur.com/VIECaW3.png)
 
 </div>
