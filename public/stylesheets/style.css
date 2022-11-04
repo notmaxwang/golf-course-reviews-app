@@ -1,6 +1,5 @@
 
 body {
-  padding: 50px;
   font: 14px sans-serif;
 }
 
@@ -8,151 +7,30 @@ body {
   padding: 40vmin 15vmin;
   background-image: url(https://i.imgur.com/lqXkrRp.jpg);
   background-size: cover;
-  min-height: 100vh;
+  min-height: 120vh;
 }
 
 .navbar-header {
-  margin: 20px;
-}
-
-body > nav {
-  grid-area: nav;
-  background-color: #71e6b7;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0 20px 0 30px;
-}
-
-
-body > main {
-  grid-area: main;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #E8ECEB;
-  padding: 20px;
-  overflow-y: scroll;
-}
-
-body > main h1:first-child {
-  margin-bottom: 50px;
-}
-
-nav > a {
-  margin: 20px;
-  text-decoration: none;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-nav > a:hover:not(.active) {
-  color: white;
-  background-color: #424748;
-}
-
-nav > a.active {
-  color: white;
-  cursor: default;
-}
-
-
-
-table {
-  font-size: 20px;
-}
-
-table thead th {
-  padding: 5px;
-  border-bottom: 2px solid #424748;
-}
-
-table td {
-  padding: 10px;
-  text-align: center;
-}
-
-#list td:nth-child(2), #list td:nth-child(3){
-  min-width: 100px;
-}
-
-#list a {
-  border-radius: 4px;
-  background-color: #B8C0C2;
-  padding: 4px;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-#list a:hover {
-  background-color: white;
-}
-
-#show-page {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 1rem;
-}
-
-#show-page div:nth-child(even) {
-  font-weight: bold;
-}
-
-#add-review-form{
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-#add-review-form input[type="submit"]{
-  width: 10rem;
-  grid-column: 2 / 3;
-}
-
-hr {
-  color: #424748
-}
-
-#badge-container {
-  display: flex;
-  flex-wrap: wrap;
-  /* padding: 1rem; */
-  width: 80%;
-  border: 2px solid #B8C0C2;
-  border-radius: .5rem;
-  margin: .5rem 0 2rem;
-}
-
-.badge {
-  background-color: #B8C0C2;
-  padding: .5rem;
-  margin: .5rem;
-  border-radius: .3rem;
-  font-size: .8rem;
-  text-align: center;
+  margin: 15px;
 }
 
 ul {
-  margin: 0 0 1rem;
-  padding: 0;
-  list-style: none;
-}
-	
-li {
-  font-weight: bold;
-}
-
-.login {
+  font-size: 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 34px;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
-.login img {
-  height: 30px;
+.nav-item {
+  color: white;
+  text-decoration: none;
+  margin: 0.5vmin;
 }
+
+.nav-item:hover {
+  color: green;
+}
+
 
 .review-user {
   display: flex;

@@ -1,16 +1,18 @@
 <%- include('../partials/header')%>
 
-<form id="new-form" action="/courses" method="POST">
-    <label>Golf Course Name:</label>
-    <input type="text" name="name">
+<form id="new-form" class="mt-4" action="/courses" method="POST">
+    <div class="form-group">
+        <label>Golf Course Name:</label>
+        <textarea class="form-control" type="text" name="name"></textarea><br>
 
-    <label>Location:</label>
-    <input type="text" name="location">
+        <label>Location:</label>
+        <textarea class="form-control" type="text" name="location"></textarea><br>
 
-    <label>Price:</label>
-    <input type="text" name="price">
+        <label>Price:</label>
+        <input type="text" name="price">
 
-    <button type="submit">Add Course</button>
+        <button type="submit" class="btn btn-outline-dark">Add Course</button>
+    </div>
 </form>
 
 <%- include('../partials/footer')%>
