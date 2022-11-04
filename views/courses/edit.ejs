@@ -3,10 +3,10 @@
 <div class="container">
     <form id="edit-form" class="pt-5" action="/courses/<%= course._id%>?_method=PUT" method="POST">
         <label>Golf Course Name:</label>
-        <textarea class="form-control" type="text" name="name"></textarea><br>
+        <textarea class="form-control" type="text" name="name"><%= course.name %></textarea><br>
     
         <label>Location:</label>
-        <textarea class="form-control" type="text" name="location"></textarea><br>
+        <textarea class="form-control" type="text" name="location"><%= course.location %></textarea><br>
     
         <button type="submit" class="btn btn-outline-dark">Edit Course Info</button>
     </form>

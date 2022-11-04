@@ -23,7 +23,6 @@ function update(req, res) {
     Course.findById(req.params.id, function(err, course) {
         course.name = req.body.name;
         course.location = req.body.location;
-        course.price = req.body.price;
         course.save(function(err) {
             console.log(err)
             if (err) return res.redirect('/courses/new');
