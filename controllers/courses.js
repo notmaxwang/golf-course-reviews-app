@@ -24,7 +24,6 @@ function update(req, res) {
         course.name = req.body.name;
         course.location = req.body.location;
         course.save(function(err) {
-            console.log(err)
             if (err) return res.redirect('/courses/new');
             res.redirect(`/courses/${course._id}`);
         });

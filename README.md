@@ -44,6 +44,6 @@ You will need a Google account to be able to post review or comments.
 
 
 ### Upcoming Features
--Suggested locations when typing in the course locations.
--Livechat features for users.
--Users can also post reviews about their club sets.
+* Suggested locations when typing in the course locations.
+* Livechat features for users.
+* Users can also post reviews about their club sets.
