@@ -31,10 +31,38 @@ ul {
   color: green;
 }
 
-.card {
+.all-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.all-review-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.all-cards > .card {
+  background-color: rgb(226, 246, 239);
    margin: 1vmin;
 }
 
+#add-review-form {
+  margin: 1vmin;
+}
+
+.user-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+#user-edit {
+  margin-right: 1vmin;
+}
 
 .review-user {
   display: flex;

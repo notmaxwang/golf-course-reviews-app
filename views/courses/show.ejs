@@ -2,23 +2,24 @@
 
 <div class="container">
   <section id="show-page">
-    <h2>Course Information</h2>
-    <div>Name: </div>
-    <div><%= course.name %></div>
-    <div>Location: </div>
-    <div><%= course.location %></div>
-    <div>Price: </div>
-    <div>$<%= course.price %></div>
+    <h1>Course Information</h1>
+    <h3><%= course.name %> ⛳️</h3>
+    <h3><%= course.location %></h3>
+    <h3>$<%= course.price %></h3>
     <% if (user?._id.equals(course.user)) { %>
-      <button class="btn btn-outline-warning">
-        <a href="/courses/<%= course._id %>/edit" style="text-decoration:none">
-          Edit</a>
+      <div class="user-buttons">
+        
+        <button class="btn btn-outline-warning" id="user-edit">
+          <a href="/courses/<%= course._id %>/edit" style="text-decoration:none">EDIT</a>
         </button>
-    <% } %>
-    <% if (user?._id.equals(course.user)) { %>
-      <form action="/courses/<%= course._id %>?_method=DELETE" method="POST">
-        <input class="btn btn-outline-danger" id="delete-btn" type="submit" value="x">
-      </form>
+        
+        
+        <form action="/courses/<%= course._id %>?_method=DELETE" method="POST">
+          <button class="btn btn-outline-danger" id="delete-btn" type="submit">DELETE</button>
+        </form>
+        
+        
+      </div>
     <% } %>
   </section>
 </div>
@@ -32,58 +33,40 @@
     <form id="add-review-form" method="POST"
       action="/courses/<%= course._id %>/reviews">
       <label>Review:</label>
-      <textarea name="content"></textarea>
+      <textarea class="form-control" type="text" name="content"></textarea>
       <label>Rating:</label>
-      <select name="rating">
+      <select class="form-select" name="rating">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
         <option value="5" selected>5</option>
       </select>
-      <input type="submit" value="Add Review">
+      <input class="btn btn-outline-dark" type="submit" value="Add Review">
     </form>
   <% } %>
 
   <% if (course.reviews.length) { %>
-    <table>
-      <thead>
-        <tr>
-          <th>User</th>
-          <th>Date</th>
-          <th>Review</th>
-          <th>Rating</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% let total = 0 %>
-        <% course.reviews.forEach(function(r) { %>
-          <% total += r.rating %>
-          <tr>
-            <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer"> <%= r.userName %></td>
-            <td><%= r.createdAt.toLocaleDateString() %></td>
-            <td><%= r.content %></td>
-            <td><%= r.rating %></td>
-            <td>
-              <% if (user?._id.equals(r.user)) { %>
-                <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
-                  <button class="btn btn-outline-danger" id="comment-delete-btn" type="submit">X</button>
-                </form>
-              <% } %>
-            </td>
-          </tr>
-        <% }); %>
-        <tr>
-          <td colspan="2"></td>
-          <td>
-            <strong>
-              Average Rating: <%= (total / course.reviews.length).toFixed(1) %> / 5
-            </strong>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="all-review-cards">
+    <% course.reviews.forEach(function(r) { %>
+      <div class="card" style="width: 20rem;">
+        <img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title"><%= r.userName %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= r.createdAt.toLocaleDateString() %></h6>
+          <p class="card-text"><%= r.content %></p>
+          <p>Overall Rating: <%= r.rating %> / 5
+            <% if (user?._id.equals(r.user)) { %>
+              <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                <button class="btn btn-outline-danger" id="comment-delete-btn" type="submit">X</button>
+              </form>
+            <% } %>
+          </p>
+        </div>
+      </div> 
+    <% }); %>
+    </div> 
+
   <% } else { %>
     <h5>No Reviews Yet</h5>
   <% } %>
