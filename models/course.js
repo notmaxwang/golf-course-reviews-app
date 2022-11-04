@@ -6,6 +6,24 @@ const reviewSchema = new Schema({
       type: String,
       required: true
     },
+    checkInEase: {
+      type: Number,
+      min: 1,
+      max: 5,
+      default:5
+    },
+    fairwayCondition: {
+      type: Number,
+      min: 1,
+      max: 5,
+      default:5
+    },
+    foodUtil: {
+      type: Number,
+      min: 1,
+      max: 5,
+      default:5
+    },
     rating: {
       type: Number,
       min: 1,
@@ -31,10 +49,6 @@ const courseSchema = new Schema({
     location: {
         type: String,
         required: true
-    },
-    price: {
-      type: Number,
-      required: true
     },
     user: {
       type: Schema.Types.ObjectId,

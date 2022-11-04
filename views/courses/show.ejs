@@ -5,7 +5,6 @@
     <h1>Course Information</h1>
     <h3><%= course.name %> ⛳️</h3>
     <h3><%= course.location %></h3>
-    <h3>$<%= course.price %></h3>
     <% if (user?._id.equals(course.user)) { %>
       <div class="user-buttons">
         
@@ -28,13 +27,41 @@
 <br>
 
 <div class="container">
-  <h4>Reviews</h4>
   <% if (user) { %>
+    <h3>Write a Review!</h3>
     <form id="add-review-form" method="POST"
       action="/courses/<%= course._id %>/reviews">
       <label>Review:</label>
       <textarea class="form-control" type="text" name="content"></textarea>
-      <label>Rating:</label>
+
+      <label>Check-in Easability:</label>
+      <select class="form-select" name="checkInEase">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5" selected>5</option>
+      </select>
+
+      <label>Fairway & Green Condition:</label>
+      <select class="form-select" name="fairwayCondition">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5" selected>5</option>
+      </select>
+
+      <label>Utility and Food:</label>
+      <select class="form-select" name="foodUtil">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5" selected>5</option>
+      </select>
+
+      <label>Overall Rating:</label>
       <select class="form-select" name="rating">
         <option value="1">1</option>
         <option value="2">2</option>
@@ -47,6 +74,7 @@
   <% } %>
 
   <% if (course.reviews.length) { %>
+    <h3>All Reviews</h3>
     <div class="all-review-cards">
     <% course.reviews.forEach(function(r) { %>
       <div class="card" style="width: 20rem;">
@@ -55,6 +83,9 @@
           <h5 class="card-title"><%= r.userName %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= r.createdAt.toLocaleDateString() %></h6>
           <p class="card-text"><%= r.content %></p>
+          <p>Check-in Easability: <%= r.checkInEase %> / 5</p>
+          <p>Fairway & Green Condition: <%= r.fairwayCondition %> / 5</p>
+          <p>Utility and Food: <%= r.foodUtil %> / 5</p>
           <p>Overall Rating: <%= r.rating %> / 5
             <% if (user?._id.equals(r.user)) { %>
               <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
