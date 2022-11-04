@@ -1,12 +1,14 @@
 <%- include('../partials/header')%>
 
-<section id="show-page">
-    <div>Course Name: </div>
+<div class="container">
+  <section id="show-page">
+    <h2>Course Information</h2>
+    <div>Name: </div>
     <div><%= course.name %></div>
     <div>Location: </div>
     <div><%= course.location %></div>
     <div>Price: </div>
-    <div><%= course.price %></div>
+    <div>$<%= course.price %></div>
     <% if (user?._id.equals(course.user)) { %>
       <button class="btn btn-outline-warning">
         <a href="/courses/<%= course._id %>/edit" style="text-decoration:none">
@@ -18,67 +20,73 @@
         <input class="btn btn-outline-danger" id="delete-btn" type="submit" value="x">
       </form>
     <% } %>
-</section>
+  </section>
+</div>
 
-<br><br><h2>Reviews</h2>
-<% if (user) { %>
-  <form id="add-review-form" method="POST"
-    action="/courses/<%= course._id %>/reviews">
-    <label>Review:</label>
-    <textarea name="content"></textarea>
-    <label>Rating:</label>
-    <select name="rating">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5" selected>5</option>
-    </select>
-    <input type="submit" value="Add Review">
-  </form>
-<% } %>
+<br>
+<br>
 
-<% if (course.reviews.length) { %>
-  <table>
-    <thead>
-      <tr>
-        <th>User</th>
-        <th>Date</th>
-        <th>Review</th>
-        <th>Rating</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% let total = 0 %>
-      <% course.reviews.forEach(function(r) { %>
-        <% total += r.rating %>
+<div class="container">
+  <h4>Reviews</h4>
+  <% if (user) { %>
+    <form id="add-review-form" method="POST"
+      action="/courses/<%= course._id %>/reviews">
+      <label>Review:</label>
+      <textarea name="content"></textarea>
+      <label>Rating:</label>
+      <select name="rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5" selected>5</option>
+      </select>
+      <input type="submit" value="Add Review">
+    </form>
+  <% } %>
+
+  <% if (course.reviews.length) { %>
+    <table>
+      <thead>
         <tr>
-          <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer"> <%= r.userName %></td>
-          <td><%= r.createdAt.toLocaleDateString() %></td>
-          <td><%= r.content %></td>
-          <td><%= r.rating %></td>
+          <th>User</th>
+          <th>Date</th>
+          <th>Review</th>
+          <th>Rating</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% let total = 0 %>
+        <% course.reviews.forEach(function(r) { %>
+          <% total += r.rating %>
+          <tr>
+            <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer"> <%= r.userName %></td>
+            <td><%= r.createdAt.toLocaleDateString() %></td>
+            <td><%= r.content %></td>
+            <td><%= r.rating %></td>
+            <td>
+              <% if (user?._id.equals(r.user)) { %>
+                <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                  <button class="btn btn-outline-danger" id="comment-delete-btn" type="submit">X</button>
+                </form>
+              <% } %>
+            </td>
+          </tr>
+        <% }); %>
+        <tr>
+          <td colspan="2"></td>
           <td>
-            <% if (user?._id.equals(r.user)) { %>
-              <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
-                <button class="btn btn-outline-danger" id="comment-delete-btn" type="submit">X</button>
-              </form>
-            <% } %>
+            <strong>
+              Average Rating: <%= (total / course.reviews.length).toFixed(1) %> / 5
+            </strong>
           </td>
         </tr>
-      <% }); %>
-      <tr>
-        <td colspan="2"></td>
-        <td>
-          <strong>
-            Average Rating: <%= (total / course.reviews.length).toFixed(1) %> / 5
-          </strong>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-<% } else { %>
-  <h5>No Reviews Yet</h5>
-<% } %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h5>No Reviews Yet</h5>
+  <% } %>
+</div>
 
 <%- include('../partials/footer')%>

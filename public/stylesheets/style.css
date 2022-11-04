@@ -31,6 +31,10 @@ ul {
   color: green;
 }
 
+.card {
+   margin: 1vmin;
+}
+
 
 .review-user {
   display: flex;

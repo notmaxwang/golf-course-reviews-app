@@ -1,24 +1,17 @@
 <%- include('../partials/header')%>
 
 
-<table>
-    <thead>
-      <tr>
-        <th>Course Name</th>
-        <th>Location</th>
-        <th>Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% courses.forEach(function(m) {%>
-        <tr>
-          <td><%= m.name %></td>
-          <td><%= m.location %></td>
-          <td><%= m.price%></td>
-          <td><a href="/courses/<%= m._id %>">Reviews & Ratings</a></td>
-        </tr>
-      <% }); %>
-    </tbody>
-</table>
+
+<% courses.forEach(function(m) {%>
+  <div class="card text-center" style="width: 25rem">
+    <div class="class-body">
+      <h5 class="card-body"><%= m.name %></h5>
+      <p class="card-text"><%= m.location %></p>
+      <p>$<%= m.price%></p>
+      <a href="/courses/<%= m._id %>" class="btn btn-outline-dark">Reviews & Ratings</a>
+    </div>
+  </div>
+<% }); %>
+
 
 <%- include('../partials/footer')%>
