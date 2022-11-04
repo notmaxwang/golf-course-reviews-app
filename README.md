@@ -17,8 +17,8 @@
 
 This is a website app that is designed to share and discuss your golf courses
 visits! You can browse reviews and courses made by other users in the nav bar,
-and you can also write a comment about your own experience in each review entry.
-You will need a Google account to be able to post review or comments. 
+and you can also write a review about your own experience in the course info tab.
+You will need a Google account to be able to post review or add new courses. 
 
 ![img](https://i.imgur.com/dwOTBHo.jpg)
 ![img](https://i.imgur.com/acT6rQQ.png)
