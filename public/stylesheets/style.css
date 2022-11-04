@@ -83,5 +83,13 @@ ul {
   height: 40px;
 }
 
+@media only screen and (max-width: 768px) {
+  #show-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+
 
 
