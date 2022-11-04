@@ -1,16 +1,16 @@
 <%- include('../partials/header') %>
 
-<form id="edit-form" action="/courses/<%= course._id%>?_method=PUT" method="POST">
+<form id="edit-form" class="pt-5" action="/courses/<%= course._id%>?_method=PUT" method="POST">
     <label>Golf Course Name:</label>
-    <input type="text" name="name">
+    <textarea class="form-control" type="text" name="name"></textarea><br>
 
     <label>Location:</label>
-    <input type="text" name="location">
+    <textarea class="form-control" type="text" name="location"></textarea><br>
 
     <label>Price:</label>
-    <input type="text" name="price">
+    <textarea class="form-control" type="text" name="price"></textarea><br>
 
-    <button type="submit">Add Course</button>
+    <button type="submit" class="btn btn-outline-dark">Edit Course Info</button>
 </form>
 
 <%- include('../partials/footer')%>
